@@ -1,17 +1,17 @@
 import 'dart:math';
 
 void main() {
-  Set<int> myLotteryNumbers = {}; //발급한 로또 번호 초기화
+  Set<int> myNumbers = {}; //발급한 로또 번호 초기화
 
-  while (myLotteryNumbers.length < 6) {
+  while (myNumbers.length < 6) {
     //로또 번호 갯수 6개 될 때까지 반복
-    myLotteryNumbers.add(Random().nextInt(45) + 1); // 1~45 중 랜덤으로 넣기
+    myNumbers.add(Random().nextInt(45) + 1); // 1~45 중 랜덤으로 넣기
   }
-  print("발급한 로또번호: $myLotteryNumbers"); //발급 메시지
+  print("발급한 로또번호: $myNumbers"); //발급 메시지
 
   Set<int> winningNumbers = {9, 19, 29, 35, 37, 38}; // 당첨번호
   //내번호와 당첨번호의 교집합을 일치 번호에 대입
-  Set<int> matchedNumebr = winningNumbers.intersection(myLotteryNumbers);
+  Set<int> matchedNumebr = winningNumbers.intersection(myNumbers);
 
   String winningRank; // 당첨 여부 변수 등록
   if (matchedNumebr.length >= 5) {
@@ -28,6 +28,6 @@ void main() {
   }
   print('일치 번호: $matchedNumebr'); //무슨 번호 맞았는지 명시
   print('당첨 여부: $winningRank'); //당첨 여부 명시
-  myLotteryNumbers = {}; //발급한 로또 번호 초기화
-  print('현재 발급한 로또 번호: $myLotteryNumbers'); //내 번호 초기화 명시
+  myNumbers = {}; //발급한 로또 번호 초기화
+  print('현재 발급한 로또 번호: $myNumbers'); //내 번호 초기화 명시
 }
